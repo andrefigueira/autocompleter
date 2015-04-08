@@ -8,7 +8,9 @@
   "description": "A simple JavaScript autocompletion tool for inputs",
   "main": "dist/autocompleter.js",
   "keywords": [
-    "typeahead"
+    "typeahead",
+    "autocomplete",
+    "javascript"
   ],
   "license": "MIT",
   "ignore": [
