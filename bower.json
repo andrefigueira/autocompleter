@@ -1,0 +1,24 @@
+{
+  "name": "autocompleter",
+  "version": "0.0.1",
+  "homepage": "https://github.com/andrefigueira/autocompleter",
+  "authors": [
+    "Andre Figueira <andre.figueira@me.com>"
+  ],
+  "description": "A simple JavaScript autocompletion tool for inputs",
+  "main": "dist/autocompleter.js",
+  "keywords": [
+    "typeahead",
+    "autocomplete",
+    "javascript"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/js/dependencies",
+    "test",
+    "tests"
+  ]
+}
