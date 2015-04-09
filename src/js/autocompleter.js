@@ -12,7 +12,8 @@ $.fn.autocompleter = function(settings) {
         formatPlaceholderRegex: /\{\{ (.*?) \}\}/g,
         resultsSelector: 'autocompleter-results',
         nameKey: 'name',
-        'source': function(query, results) {}
+        'source': function(query, results) {},
+        'resultClick': function(element) {}
     }, settings || {});
 
     var input = $(this);
@@ -77,22 +78,6 @@ $.fn.autocompleter = function(settings) {
             return false;
         }
 
-        // Lets bind the enter key to go to a href data action as the window location if there is an active result item
-        if (e.keyCode === ENTER_KEY) {
-            var currentActiveItemSelector = autocompleterHtmlSelector + ' li.' + options.activeClass;
-
-            if ($(currentActiveItemSelector).size() > 0) {
-
-                var activeItem = $(currentActiveItemSelector);
-
-                // @todo: Do some action on press enter
-
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }
-        }
-
         // Check for results in the callback
         options.source.call(this, query, function(sourceData){
             if (typeof sourceData !== 'object') {
@@ -122,6 +107,31 @@ $.fn.autocompleter = function(settings) {
                 }
             }
         });
+    });
+
+    /**
+     * Bind seperate event iincluding all key press ones for the other keys not
+     * involved in the search
+     */
+    $(document).on('keyup keypress keydown', input, function(e){
+
+        // Lets bind the enter key to go to a href data action as the window location if there is an active result item
+        if (e.keyCode === ENTER_KEY) {
+            var currentActiveItemSelector = autocompleterHtmlSelector + ' li.' + options.activeClass;
+
+            if ($(currentActiveItemSelector).size() > 0) {
+
+                e.preventDefault();
+                e.stopPropagation();
+
+                var activeItemEl = $(currentActiveItemSelector);
+
+                options.resultClick.call(this, activeItemEl);
+
+                return false;
+            }
+        }
+
     });
 
     /**
@@ -166,10 +176,16 @@ $.fn.autocompleter = function(settings) {
         var html = '';
 
         $.each(data, function(index, item){
+            var dataAttr = '';
+
+            $.each(item, function(key, value){
+                dataAttr += 'data-' + key + '="' + value + '" ';
+            });
+
             if (options.format == null) {
-                html += '<li>' + item.name + '</li>';
+                html += '<li ' + dataAttr + '>' + item.name + '</li>';
             } else {
-                var htmlContent = '<li>' + options.format + '</li>';
+                var htmlContent = '<li ' + dataAttr + '>' + options.format + '</li>';
 
                 html += htmlContent.replace(options.formatPlaceholderRegex, function(match, token){
 

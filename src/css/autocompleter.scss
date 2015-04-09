@@ -1,23 +1,23 @@
 $background-color: #FFF;
 $border-color: #E9E9E9;
 $hover-color: #F9F9F9;
-$active-background-color: #7CCCEF;
+$active-background-color: #CCF3D6;
 $active-color: #333;
 
 .autocompleter {
   display: block;
   list-style: none;
-  padding: 0;
   margin: 2px 0 0 0;
+  padding: 0;
   background: $background-color;
   position: absolute;
-  //Include the col padding and remove it
-  width: calc(100% - (15px * 2));
+  width: calc(100% - (15px * 2)); //Include the col padding and remove it
   border-radius: 3px;
   li {
-    padding: 10px;
     cursor: pointer;
+    padding: 10px;
     border-bottom: 1px solid $border-color;
+    color: #333;
   }
   li.active {
     background: $active-background-color;

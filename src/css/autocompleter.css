@@ -1,18 +1,19 @@
 .autocompleter {
   display: block;
   list-style: none;
-  padding: 0;
   margin: 2px 0 0 0;
+  padding: 0;
   background: #FFF;
   position: absolute;
   width: calc(100% - (15px * 2));
   border-radius: 3px; }
   .autocompleter li {
-    padding: 10px;
     cursor: pointer;
-    border-bottom: 1px solid #E9E9E9; }
+    padding: 10px;
+    border-bottom: 1px solid #E9E9E9;
+    color: #333; }
   .autocompleter li.active {
-    background: #7CCCEF;
+    background: #CCF3D6;
     color: #333; }
   .autocompleter li:hover {
     background: #F9F9F9; }
