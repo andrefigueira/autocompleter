@@ -74,6 +74,7 @@ $.fn.autocompleter = function(settings) {
     function generateResultsItemsHtml(data) {
         var html = '';
 
+        // @todo: Make the item information here customisable
         $.each(data, function(index, item){
             html += '<li>' + item.name + '</li>';
         });
