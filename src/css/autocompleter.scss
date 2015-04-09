@@ -1,0 +1,38 @@
+$background-color: #FFF;
+$border-color: #E9E9E9;
+$hover-color: #F9F9F9;
+$active-background-color: #CCF3D6;
+$active-color: #333;
+
+.autocompleter {
+  display: block;
+  list-style: none;
+  margin: 2px 0 0 0;
+  padding: 0;
+  background: $background-color;
+  position: absolute;
+  width: calc(100% - (15px * 2)); //Include the col padding and remove it
+  border-radius: 3px;
+  li {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid $border-color;
+    color: #333;
+  }
+  li.active {
+    background: $active-background-color;
+    color: $active-color;
+  }
+  li:hover {
+    background: $hover-color;
+  }
+  li:first-child {
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+  }
+  li:last-child {
+    -webkit-border-bottom-left-radius: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom: none;
+  }
+}
