@@ -106,6 +106,14 @@ $.fn.autocompleter = function(settings) {
                     }
                 }
             }
+
+            var resultItemsEls = $(autocompleterHtmlSelector).find('li');
+
+            // Bind resultClick event to result item click
+            $(resultItemsEls).click(function(){
+                options.resultClick.call(this, $(this));
+            });
+
         });
     });
 
