@@ -1,0 +1,24 @@
+.autocompleter {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 2px 0 0 0;
+  background: #FFF;
+  position: absolute;
+  width: calc(100% - (15px * 2));
+  border-radius: 3px; }
+  .autocompleter li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #E9E9E9; }
+  .autocompleter li:hover {
+    background: #F9F9F9; }
+  .autocompleter li:first-child {
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-top-right-radius: 3px; }
+  .autocompleter li:last-child {
+    -webkit-border-bottom-left-radius: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom: none; }
+
+/*# sourceMappingURL=autocompleter.css.map */
