@@ -1,6 +1,8 @@
 $background-color: #FFF;
 $border-color: #E9E9E9;
 $hover-color: #F9F9F9;
+$active-background-color: #7CCCEF;
+$active-color: #333;
 
 .autocompleter {
   display: block;
@@ -16,6 +18,10 @@ $hover-color: #F9F9F9;
     padding: 10px;
     cursor: pointer;
     border-bottom: 1px solid $border-color;
+  }
+  li.active {
+    background: $active-background-color;
+    color: $active-color;
   }
   li:hover {
     background: $hover-color;
