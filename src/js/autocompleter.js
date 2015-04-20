@@ -28,7 +28,7 @@ $.fn.autocompleter = function(settings) {
     /**
      * Lets attach a keyup event on the input
      */
-    $(document).on('keyup', input, function(e){
+    $(document).on('keyup', input.selector, function(e){
         var query = input.val();
 
         // Lets bind some specific key events on escape hide results
